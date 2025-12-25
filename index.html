@@ -17,44 +17,84 @@
     </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 1rem 0; box-shadow: 0 2px 20px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        .header-content { display: flex; align-items: center; justify-content: space-between; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #111827; background: radial-gradient(1200px 600px at 20% 0%, rgba(255,255,255,0.22), rgba(255,255,255,0) 60%), linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); padding: 14px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        .header-content { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
         .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
         .app-icon { width: 32px; height: 32px; background: linear-gradient(45deg, #FF6B6B, #4ECDC4); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; font-weight: bold; overflow: hidden; }
         .app-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
         .logo h1 { font-size: 24px; font-weight: 700; color: #2d3748; }
 
-        main { padding: 40px 0; }
-        .content { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .hero h1 { font-size: 36px; font-weight: 800; color: #2d3748; margin-bottom: 12px; }
-        .hero p { color: #4a5568; margin-bottom: 20px; }
-        .cta { display: inline-block; background: #667eea; color: #fff; text-decoration: none; padding: 10px 18px; border-radius: 10px; font-weight: 700; box-shadow: 0 8px 20px rgba(102,126,234,0.3); }
-        .cta:hover { background: #5a67d8; }
-        .cta-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .nav { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
+        .nav a { color: #334155; text-decoration: none; font-weight: 650; font-size: 14px; padding: 8px 10px; border-radius: 10px; }
+        .nav a:hover { background: rgba(102, 126, 234, 0.12); color: #1f2937; }
 
-        .section-title { font-size: 24px; font-weight: 700; color: #2d3748; margin: 28px 0 16px; padding-top: 18px; border-top: 1px solid #e2e8f0; }
-        .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .tool-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; box-shadow: 0 6px 20px rgba(0,0,0,0.04); overflow: hidden; }
-        .tool-thumb { width: 100%; aspect-ratio: 4/3; background: #f7fafc; display: block; }
+        main { padding: 34px 0 52px; }
+        .content { background: rgba(255, 255, 255, 0.94); backdrop-filter: blur(12px); border-radius: 22px; padding: 44px; box-shadow: 0 18px 50px rgba(0,0,0,0.12); }
+
+        .kicker { display: inline-flex; align-items: center; gap: 10px; padding: 7px 12px; border: 1px solid rgba(148,163,184,0.45); background: rgba(255,255,255,0.75); color: #334155; border-radius: 999px; font-weight: 650; font-size: 13px; }
+        .kicker-dot { width: 8px; height: 8px; border-radius: 999px; background: #10b981; box-shadow: 0 0 0 4px rgba(16,185,129,0.18); }
+
+        .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 26px; align-items: center; margin-top: 18px; }
+        .hero h1 { font-size: 44px; line-height: 1.1; letter-spacing: -0.02em; font-weight: 900; color: #0f172a; margin: 12px 0; }
+        .hero p { color: #475569; margin-bottom: 18px; font-size: 16px; }
+        .cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #667eea; color: #fff; text-decoration: none; padding: 12px 18px; border-radius: 12px; font-weight: 800; box-shadow: 0 12px 24px rgba(102,126,234,0.28); border: 1px solid rgba(102,126,234,0.55); }
+        .cta:hover { background: #5a67d8; }
+        .cta.secondary { background: rgba(15,23,42,0.06); color: #0f172a; border: 1px solid rgba(148,163,184,0.6); box-shadow: none; }
+        .cta.secondary:hover { background: rgba(15,23,42,0.09); }
+        .cta-group { display: flex; gap: 10px; flex-wrap: wrap; }
+        .hero-note { margin-top: 12px; color: #64748b; font-size: 13px; }
+
+        .hero-media { border-radius: 18px; overflow: hidden; border: 1px solid rgba(226,232,240,1); background: linear-gradient(180deg, rgba(248,250,252,1), rgba(241,245,249,1)); box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
+        .hero-media img { width: 100%; height: auto; display: block; }
+
+        .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 24px; }
+        .metric { background: #fff; border: 1px solid rgba(226,232,240,1); border-radius: 16px; padding: 14px; box-shadow: 0 10px 24px rgba(0,0,0,0.05); }
+        .metric-title { font-weight: 850; color: #0f172a; font-size: 14px; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+        .metric-desc { color: #64748b; font-size: 13px; }
+        .icon { width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); color: #4f46e5; }
+        .icon svg { width: 18px; height: 18px; }
+
+        .section { margin-top: 34px; padding-top: 20px; border-top: 1px solid rgba(226,232,240,1); }
+        .section-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+        .section-title { font-size: 28px; font-weight: 900; color: #0f172a; letter-spacing: -0.01em; }
+        .section-subtitle { color: #64748b; max-width: 620px; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+        .feature-card { background: #fff; border: 1px solid rgba(226,232,240,1); border-radius: 18px; padding: 16px; box-shadow: 0 12px 26px rgba(0,0,0,0.06); }
+        .feature-top { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .feature-title { font-weight: 900; color: #0f172a; }
+        .feature-desc { color: #475569; font-size: 14px; }
+
+        .tools-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+        .tool-card { background: #fff; border: 1px solid rgba(226,232,240,1); border-radius: 16px; box-shadow: 0 10px 24px rgba(0,0,0,0.06); overflow: hidden; }
+        .tool-thumb { width: 100%; aspect-ratio: 4/3; background: #f8fafc; display: block; }
         .tool-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .tool-info { padding: 14px; }
-        .tool-title { font-weight: 700; color: #2d3748; margin-bottom: 6px; }
-        .tool-desc { color: #4a5568; font-size: 14px; }
+        .tool-info { padding: 12px; }
+        .tool-title { font-weight: 900; color: #0f172a; margin-bottom: 6px; font-size: 14px; }
+        .tool-desc { color: #64748b; font-size: 13px; }
+
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .step { background: #fff; border: 1px solid rgba(226,232,240,1); border-radius: 18px; padding: 16px; box-shadow: 0 12px 26px rgba(0,0,0,0.06); }
+        .step-num { width: 34px; height: 34px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-weight: 950; background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.28); color: #047857; margin-bottom: 10px; }
+        .step-title { font-weight: 900; color: #0f172a; margin-bottom: 6px; }
+        .step-desc { color: #475569; font-size: 14px; }
 
         .links { margin-top: 26px; }
         .links p { color: #4a5568; }
         .links a { color: #667eea; text-decoration: none; font-weight: 600; }
         .links a:hover { text-decoration: underline; }
 
-        @media (max-width: 992px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 1024px) { .hero-grid { grid-template-columns: 1fr; } .tools-grid { grid-template-columns: repeat(3, 1fr); } .metrics { grid-template-columns: repeat(2, 1fr); } .features-grid { grid-template-columns: repeat(2, 1fr); } .steps { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 640px) {
-            .content { padding: 30px 20px; }
-            .hero h1 { font-size: 28px; }
-            .section-title { font-size: 20px; }
+            .content { padding: 28px 18px; }
+            .hero h1 { font-size: 32px; }
+            .header-content { flex-direction: column; align-items: stretch; }
+            .nav { justify-content: flex-start; }
             .tools-grid { grid-template-columns: 1fr; }
-            .header-content { flex-direction: column; gap: 10px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .steps { grid-template-columns: 1fr; }
         }
     </style>
     <link rel="icon" href="./pics/icon.png">
@@ -69,6 +109,13 @@
                 </div>
                 <h1>AiHome</h1>
             </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#features">Features</a>
+                <a href="#screenshots">Screenshots</a>
+                <a href="#workflow">How It Works</a>
+                <a href="#download">Download</a>
+                <a href="#policies">Policies</a>
+            </nav>
         </div>
     </div>
 </header>
@@ -77,80 +124,236 @@
     <div class="container">
         <div class="content">
             <div class="hero">
-                <h1>Smart Interior Visualization & Restyling</h1>
-                <p>Upload or capture room photos, set your style preferences, and quickly generate design previews. Replace or rearrange furniture, recolor walls and floors, then export and share results.</p>
+                <span class="kicker"><span class="kicker-dot"></span>Built for iPhone & iPad</span>
+                <div class="hero-grid">
+                    <div>
+                        <h1>Reimagine Your Space in Minutes</h1>
+                        <p>AiHome is an interior visualization app for fast concepting. Restyle rooms, replace or rearrange furniture, recolor walls and floors, and export clean previews for sharing.</p>
+                        <div class="cta-group">
+                            <a class="cta" href="https://apps.apple.com/app/id6755680845" target="_blank" rel="noopener noreferrer">Download on App Store</a>
+                            <a class="cta secondary" href="./faq.html">Read the FAQ</a>
+                        </div>
+                        <div class="hero-note">No account required. Visualization only — consult qualified professionals for construction decisions.</div>
+                    </div>
+                    <div class="hero-media">
+                        <img src="./pics/Tools/style_redesign.png" alt="AiHome preview">
+                    </div>
+                </div>
+
+                <div class="metrics" aria-label="Highlights">
+                    <div class="metric">
+                        <div class="metric-title">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </span>
+                            Fast Previews
+                        </div>
+                        <div class="metric-desc">Generate multiple concepts quickly to compare different looks.</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-title">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                            </span>
+                            Flexible Options
+                        </div>
+                        <div class="metric-desc">Try styles, furniture changes, and material edits in one workflow.</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-title">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+                            </span>
+                            Export Ready
+                        </div>
+                        <div class="metric-desc">Save previews and share with family or collaborators.</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-title">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1l3 5 6 .9-4.4 4.3 1 6.2L12 19l-5.6 3.4 1-6.2L3 6.9 9 6l3-5z"/></svg>
+                            </span>
+                            Made for iOS
+                        </div>
+                        <div class="metric-desc">Designed to feel natural on iPhone and iPad.</div>
+                    </div>
+                </div>
+            </div>
+
+            <section id="features" class="section">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Core Features</div>
+                        <div class="section-subtitle">A focused toolkit to explore layouts and styles, then export results for discussion.</div>
+                    </div>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-top">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h7l3 8 4-16 4 8h-4"/></svg>
+                            </span>
+                            <div class="feature-title">Style Redesign</div>
+                        </div>
+                        <div class="feature-desc">Apply interior styles to a room photo to explore different aesthetics.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-top">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18"/><path d="M6 7v14"/><path d="M18 7v14"/><path d="M10 11h8"/><path d="M10 15h8"/></svg>
+                            </span>
+                            <div class="feature-title">Replace Furniture</div>
+                        </div>
+                        <div class="feature-desc">Swap key pieces and evaluate composition and balance in the space.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-top">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
+                            </span>
+                            <div class="feature-title">Recolor Walls & Floors</div>
+                        </div>
+                        <div class="feature-desc">Try colors and finishes for walls and flooring before making changes.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-top">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h7v7H4z"/><path d="M13 4h7v7h-7z"/><path d="M4 13h7v7H4z"/><path d="M13 13h7v7h-7z"/></svg>
+                            </span>
+                            <div class="feature-title">Material Replacement</div>
+                        </div>
+                        <div class="feature-desc">Replace local elements and materials to refine details and mood.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-top">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18"/><path d="M5 20V8l7-4 7 4v12"/><path d="M9 20v-6h6v6"/></svg>
+                            </span>
+                            <div class="feature-title">Floor Restyle</div>
+                        </div>
+                        <div class="feature-desc">Experiment with different floor styles and patterns to elevate the look.</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-top">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+                            </span>
+                            <div class="feature-title">Export & Share</div>
+                        </div>
+                        <div class="feature-desc">Export previews and share them to align on ideas with others.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="screenshots" class="section">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Screenshots</div>
+                        <div class="section-subtitle">Examples of what you can create with AiHome’s tools.</div>
+                    </div>
+                </div>
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <a class="tool-thumb" href="./pics/Tools/style_redesign.png" target="_blank" rel="noopener noreferrer">
+                            <img src="./pics/Tools/style_redesign.png" alt="Style Redesign preview">
+                        </a>
+                        <div class="tool-info">
+                            <div class="tool-title">Style Redesign</div>
+                            <div class="tool-desc">Explore different aesthetics with a single photo.</div>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <a class="tool-thumb" href="./pics/Tools/replace_furniture.png" target="_blank" rel="noopener noreferrer">
+                            <img src="./pics/Tools/replace_furniture.png" alt="Replace furniture preview">
+                        </a>
+                        <div class="tool-info">
+                            <div class="tool-title">Replace Furniture</div>
+                            <div class="tool-desc">Try alternative pieces and improve balance.</div>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <a class="tool-thumb" href="./pics/Tools/repaint_design.png" target="_blank" rel="noopener noreferrer">
+                            <img src="./pics/Tools/repaint_design.png" alt="Repaint walls and floors preview">
+                        </a>
+                        <div class="tool-info">
+                            <div class="tool-title">Repaint</div>
+                            <div class="tool-desc">Preview walls and floors in new colors and finishes.</div>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <a class="tool-thumb" href="./pics/Tools/replace_design.png" target="_blank" rel="noopener noreferrer">
+                            <img src="./pics/Tools/replace_design.png" alt="Replace design preview">
+                        </a>
+                        <div class="tool-info">
+                            <div class="tool-title">Replace Elements</div>
+                            <div class="tool-desc">Refine details with local replacements.</div>
+                        </div>
+                    </div>
+                    <div class="tool-card">
+                        <a class="tool-thumb" href="./pics/Tools/floorRestyle.png" target="_blank" rel="noopener noreferrer">
+                            <img src="./pics/Tools/floorRestyle.png" alt="Floor restyle preview">
+                        </a>
+                        <div class="tool-info">
+                            <div class="tool-title">Floor Restyle</div>
+                            <div class="tool-desc">Try flooring styles and patterns quickly.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="workflow" class="section">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">How It Works</div>
+                        <div class="section-subtitle">A simple workflow: import, explore, export.</div>
+                    </div>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div class="step-title">Download</div>
+                        <div class="step-desc">Install AiHome from the App Store on your iPhone or iPad.</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div class="step-title">Add a Photo</div>
+                        <div class="step-desc">Choose a room photo or capture a new one with your camera.</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div class="step-title">Try Options</div>
+                        <div class="step-desc">Restyle, replace furniture, or change colors and materials.</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div class="step-title">Export</div>
+                        <div class="step-desc">Export previews for sharing and keep your files secure.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="download" class="section">
+                <div class="section-header">
+                    <div>
+                        <div class="section-title">Download</div>
+                        <div class="section-subtitle">Start visualizing your space on iOS.</div>
+                    </div>
+                </div>
                 <div class="cta-group">
-                    <a class="cta" href="./faq.html">Learn How to Use</a>
-                    <a class="cta" href="https://apps.apple.com/app/id6755680845" target="_blank" rel="noopener noreferrer">Download on App Store</a>
+                    <a class="cta" href="https://apps.apple.com/app/id6755680845" target="_blank" rel="noopener noreferrer">Open in App Store</a>
+                    <a class="cta secondary" href="./faq.html">Usage Tips</a>
                 </div>
-            </div>
+                <div class="hero-note" style="margin-top: 10px;">AiHome provides visualization only and is not a professional architectural or engineering tool.</div>
+            </section>
 
-            <h2 class="section-title">Core Features</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <a class="tool-thumb" href="#">
-                        <img src="./pics/Tools/style_redesign.png" alt="Style Redesign">
-                    </a>
-                    <div class="tool-info">
-                        <div class="tool-title">Style Redesign</div>
-                        <div class="tool-desc">Apply interior styles to get a cohesive visual plan.</div>
-                    </div>
-                </div>
-                <div class="tool-card">
-                    <a class="tool-thumb" href="#">
-                        <img src="./pics/Tools/replace_furniture.png" alt="Replace & Arrange Furniture">
-                    </a>
-                    <div class="tool-info">
-                        <div class="tool-title">Replace & Arrange Furniture</div>
-                        <div class="tool-desc">Virtually replace or rearrange furniture to explore better layouts.</div>
-                    </div>
-                </div>
-                <div class="tool-card">
-                    <a class="tool-thumb" href="#">
-                        <img src="./pics/Tools/repaint_design.png" alt="Wall & Floor Repaint">
-                    </a>
-                    <div class="tool-info">
-                        <div class="tool-title">Wall & Floor Repaint</div>
-                        <div class="tool-desc">Change wall and floor colors and materials; preview different finishes.</div>
-                    </div>
-                </div>
-                <div class="tool-card">
-                    <a class="tool-thumb" href="#">
-                        <img src="./pics/Tools/replace_design.png" alt="Material & Element Replacement">
-                    </a>
-                    <div class="tool-info">
-                        <div class="tool-title">Material & Element Replacement</div>
-                        <div class="tool-desc">Swap local materials or elements to refine spatial details.</div>
-                    </div>
-                </div>
-                <div class="tool-card">
-                    <a class="tool-thumb" href="#">
-                        <img src="./pics/Tools/floorRestyle.png" alt="Floor Restyle">
-                    </a>
-                    <div class="tool-info">
-                        <div class="tool-title">Floor Restyle</div>
-                        <div class="tool-desc">Try different flooring styles and patterns to elevate the look.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-title">Export & Share</div>
-            <p style="color:#4a5568;">Export preview images or design results to share with family or collaborators. After exporting, keep your files secure and share responsibly.</p>
-
-            <div class="section-title">Download the App</div>
-            <p style="color:#4a5568;">Get AiHome on iOS. Visit the App Store to download and start designing.</p>
-            <p>
-                <a class="cta" href="https://apps.apple.com/app/id6755680845" target="_blank" rel="noopener noreferrer">Open in App Store</a>
-            </p>
-
-            <div class="links">
+            <section id="policies" class="links section">
                 <p>More information and policies:
                     <a href="./faq.html">FAQ</a> ·
                     <a href="./privacy_policy.html">Privacy Policy</a> ·
                     <a href="./SubscriptionTerms.html">Subscription Terms</a> ·
                     <a href="./terms_of_service.html">Terms of Service</a>
                 </p>
-            </div>
+            </section>
         </div>
     </div>
 </main>
